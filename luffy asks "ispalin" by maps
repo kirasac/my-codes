@@ -1,0 +1,65 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+  int t;
+  cin>>t;
+  while(t--){
+  int n,m,l,r;
+  scanf("%d%d",&n,&m);
+  string s;
+  cin>>s;
+  //cout<<s<<endl;
+  //printf("sacfhin\n");
+  for(int i=0;i<m;i++)
+  {
+      //printf("sachin\n");
+      scanf("%d%d",&l,&r);
+      int count=0;
+      if((r-l+1)%2==0)
+      {
+         //printf("sachin\n");
+         map<char,int>mapp;
+         //printf("sachin\n");
+         for(int j=l-1;j<r;j++){mapp[s[j]]++;}
+         //printf("sachins\n");
+         map<char,int>::iterator it;
+         for(it=mapp.begin();it!=mapp.end();it++)
+         {
+            //printf("sdachin\n");
+            if((it->second)%2==1)
+             {
+                 printf("NO");
+                 goto lablex;
+             }
+         }
+      }
+      else
+      {
+          map<char,int>kapp;
+          for(int j=l-1;j<r;j++)
+          {
+              kapp[s[j]]++;
+              //cout<<s[j]<<endl;
+          }
+          map<char,int>::iterator kt;
+          for(kt=kapp.begin();kt!=kapp.end();kt++)
+          {
+              if((kt->second)%2==1)
+              {
+                  count++;
+                  //cout<<count<<endl;
+                  if(count==2)
+                  {
+                      printf("NO");
+                      goto lablex;
+                  }
+              }
+          }
+      }
+      printf("YES");
+      lablex:
+      printf("\n");
+  }
+}
+}
